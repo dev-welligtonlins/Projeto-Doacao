@@ -231,3 +231,13 @@ obsolete now.
 Reviewed-by: Z
 Refs: #123
 ```
+
+## Status do projeto
+
+Com a conclusão da capacitação em que o projeto foi desenvolvido, não houve continuidade por parte da equipe.
+Estou buscando finalizar o site para ser oferecido aos interresados.
+O projeto está em desenvolvimento em repositorio privado!
+
+
+
+
