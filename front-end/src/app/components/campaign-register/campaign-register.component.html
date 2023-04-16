@@ -1,0 +1,92 @@
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-12">
+            <form (ngSubmit)="submit(form)" #form="ngForm">
+                <h1 class="text-success">Cadastrar <span (click)="full()">Campanha</span></h1>
+                <div class="form-group">
+                    <label for="file">Imagem Principal</label>
+                    <input (change)="onFileChange($event)" type="file" class="form-control" accept="image/jpeg" id="fileUpload">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="title">Título</label> <!-- `^-=+?,.)!;(´¨~ -->
+                    <input class="form-control" id="title" type="text" name="title"
+                        placeholder="Digite o título da campanha" [(ngModel)]="campaign.title">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="resume">Resumo</label>
+                    <textarea id="resume" type="text" name="resume"
+                        placeholder="Digite a descrição da campanha" class="form-control" rows="5"
+                        [(ngModel)]="campaign.resume"></textarea>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" type="text" name="description"
+                        placeholder="Digite a descrição da campanha" class="form-control" rows="5"
+                        [(ngModel)]="campaign.description"></textarea>
+                </div>
+                <hr>
+                <!-- TODO: FAZER REGRA PARA CASO PREENCHER UM CAMPO ENTÃO PRECISA PREENCHER TODOS E SOMENTE HABILITA O BOTÃO DE ADICIONAR ITEM CASO POSITIVO -->
+                <div class="form-group mt-3">
+                    <label for="item_name">Nome do Item</label>
+                    <input id="item_name" type="text" name="item_name" class="form-control"
+                        [(ngModel)]="newItem.item_name">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="type">Grandezas</label>
+                    <br>
+                    <small class="text-muted">Selecione a unidade de medida</small>
+                    <select class="form-select" id="type" [(ngModel)]="newItem.type" name="type">
+                        <option value="UNIDADE">Unidade</option>
+                        <option value="QUILOGRAMA">Quilograma</option>
+                        <option value="LITRO">Litro</option>
+                        <option value="METRO">Metro</option>
+                        <option value="BRL">Moeda Corrente (R$)</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="required_value">Quantidade Para Arrecadar</label>
+                    <input id="required_value" type="number" name="required_value" class="form-control"
+                        [(ngModel)]="newItem.required_value">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="item_description">Descrição do Item</label>
+                    <textarea id="item_description" type="text" name="item_description" class="form-control"
+                        placeholder="Descreva as caracteristicas do item" rows="5"
+                        [(ngModel)]="newItem.item_description"></textarea>
+                </div>
+                <hr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Grandeza</th>
+                            <th scope="col">Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="item.length > 0; else elseTemplateEmpty">
+                            <tr *ngFor="let nItem of item; index as i;">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{nItem?.item_name}}</td>
+                                <td>{{nItem?.required_value}}</td>
+                                <td>{{nItem?.type}}</td>
+                                <td (click)="removeItem(i)"><i class="bi bi-x"></i></td>
+                            </tr>
+                        </ng-container>
+                        <ng-template #elseTemplateEmpty>
+                            <tr>
+                                <th colspan="5">Nenhum item cadastrado</th>
+                            </tr>
+                        </ng-template>
+                    </tbody>
+                </table>
+                <hr>
+                <button type="button" class="btn btn-primary mt-3 mx-2 mb-5" (click)="addItem()">Adicionar Item</button>
+                <button type="submit" class="btn btn-success mt-3 mx-2 mb-5"
+                    [disabled]="institution.pending == false">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+    "address": {
+        "postalCode": "69919503",
+        "country": "Brasil",
+        "state": "Acre",
+        "city": "Jordão",
+        "district": "Bairro do Peteca",
+        "location": "Rua do Boban Marjanovic - 2",
+        "number": "1482"
+    },
+    "user": {
+        "username": "user3",
+        "password": "user3"
+    },
+    "cover_image": "img3.jpg",
+    "corporate_name": "Instituto Mais Paz - LTDA",
+    "fantasy_name": "Instituto Mais Paz",
+    "cnpj": "00000003000000",
+    "email": "contato3@email.org",
+    "phone": "68333333333",
+    "linkMain": "https://institution3.com",
+    "linkAlternate": "https://institution3.com",
+    "resume": "O instituto mais paz é um orgão responsável por acolher pessoas em estado de necessidade.",
+    "description": "O instituto mais paz tem realizado trabalhos em diversas áreas de apoio social principalmente responsável por acolher pessoas em estado de necessidade.",
+    "about": "Nosso instituto foi fundado em 2001, desde então tem realizado diversas contribuições sociais.",
+    "mission": "Nosso missão visa ajudar pessoas em estado de necessidade.",
+    "vision": "Nossa visão é principalmente ajudar pessoas em estado de necessidade.",
+    "value": "Nossos valores são de ajudar pessoas em estado de necessidade.",
+    "opening_date": "2001-05-28T17:39:44.937"
+}

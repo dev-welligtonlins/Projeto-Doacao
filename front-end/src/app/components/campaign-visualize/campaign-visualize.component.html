@@ -1,0 +1,248 @@
+<!-- Page content-->
+<div class="container mt-5">
+  <ng-container *ngIf="getUsuario().role == 'ROLE_ADMIN'">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <a href="/campanhas/desativar/{{ campaign.id }}" class="btn btn-danger flex-shrink-0 me-2" type="button">
+          <i class="bi bi-tools"></i>
+          Desativar
+        </a>
+      </div>
+    </div>
+    <hr />
+  </ng-container>
+  <ng-container *ngIf="getUsuario().role == 'ROLE_INSTITUTION'">
+    <ng-container *ngIf="isCampaignOfThisInstitution">
+      <div class="row my-4">
+        <div class="col-md-12">
+          <h4 class="text-success mb-4">Funções Administrativas</h4>
+          <a href="/campanhas/atualizar/{{ campaign.id }}" class="btn btn-primary flex-shrink-0 me-2" type="button">
+            <i class="bi bi-tools"></i>
+            Atualizar
+          </a>
+          <a href="/campanhas/desativar/{{ campaign.id }}" class="btn btn-danger flex-shrink-0 me-2" type="button">
+            <i class="bi bi-tools"></i>
+            Desativar
+          </a>
+          <a href="/campanhas/finalizar/{{ campaign.id }}" class="btn btn-info text-white flex-shrink-0 me-2"
+            type="button">
+            <i class="bi bi-tools"></i>
+            Finalizar
+          </a>
+        </div>
+      </div>
+      <hr />
+    </ng-container>
+  </ng-container>
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- Post content-->
+      <article>
+        <!-- Post header-->
+        <header class="mb-4">
+          <!-- Post title-->
+          <h1 class="fw-bolder mb-1 text-success">{{ campaign.title }}</h1>
+          <!-- Post meta content-->
+          <!-- Post categories-->
+
+        </header>
+        <!-- Preview image figure-->
+        <figure class="mb-4">
+          <img class="img-fluid rounded" src="{{apiUrl}}/image/{{campaign.cover_image}}" alt="..." />
+        </figure>
+        <section class="mb-5">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title text-success">Instituição Responsável pela Arrecadação</h4>
+              <hr class="text-success">
+              <p class="small"><span class="text-success font-weight-bold">Nome da Instituição:
+                </span>{{institution.fantasy_name}}</p>
+              <p class="small"><span class="text-success font-weight-bold">CNPJ: </span>{{institution.cnpj}}</p>
+              <p class="small"><span class="text-success font-weight-bold">E-mail: </span>{{institution.email}}</p>
+              <p class="small"><span class="text-success font-weight-bold">Telefone: </span>{{institution.phone}}</p>
+              <a href="/instituicoes/visualizar/{{institution.id}}" class="btn btn-success btn-sm">Saiba Mais</a>
+            </div>
+          </div>
+        </section>
+        <!-- Post content-->
+        <section class="mb-5">
+          <h3 class="text-success">Descrição Detalhada da Campanha</h3>
+          <p class="fs-5 mb-4">{{campaign.description}}</p>
+        </section>
+      </article>
+    </div>
+    <!-- Side widgets-->
+    <div class="col-lg-4">
+      <h2 class="text-success fw-bolder">Detalhes da campanha</h2>
+
+      <div class="d-flex my-4">
+        <ng-container *ngIf="
+            getUsuario().role == 'ROLE_INSTITUTION' ||
+              getUsuario().role == 'ROLE_DONOR';
+            else elseBlock
+          ">
+          <span class="text-success me-2">({{ campaign.enjoys.length }})</span><i
+            class="fa fa-thumbs-up me-3 mt-1 text-success" style="cursor: pointer"
+            (click)="registerEnjoy(user.id, campaign.id)"></i>
+        </ng-container>
+        <ng-template #elseBlock>
+          <span class="text-success me-2">({{ campaign.enjoys.length }})</span><i
+            class="fa fa-thumbs-up me-3 mt-1 text-success" style="cursor: pointer"></i>
+        </ng-template>
+
+        <button type="button" class="btn btn-outline-success flex-shrink-0 me-2" data-bs-toggle="modal"
+          data-bs-target="#exampleModalInfo">
+          <i class="bi bi-share-fill"></i>
+          Compartilhar
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalInfo" tabindex="-1" aria-labelledby="exampleModalInfo"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalInfo">
+                  Compartilhe nas midias socias:
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body d-flex">
+                <ul class="list-group list-group-horizontal list-inline mx-auto justify-content-center">
+                  <!-- TODO:https://www.rhbinformatica.com.br/dicas/como-fazer-links-de-compartilhamento-para-as-redes-sociais-->
+                  <li class="list-group-item">
+                    <a class="bi bi-facebook" title="Share on Facebook" target="_blank" (click)="openFacebook()"></a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="bi bi-whatsapp"
+                      href="https://api.whatsapp.com/send?text={{ frontUrl }}/campanhas/visualizar/{{campaign.id}}"
+                      target="_blank"></a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="https://twitter.com/intent/tweet?url={{ frontUrl }}/campanhas/visualizar/{{campaign.id}}"
+                      class="bi bi-twitter" data-lang="pt" target="_blank"></a>
+                    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                  </li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-container *ngIf="getUsuario().role == 'ROLE_DONOR'">
+          <a href="/denuncias/cadastrar/{{ campaign.id }}" class="btn btn-outline-danger flex-shrink-0">
+            <i class="bi bi-megaphone"></i>
+            Denunciar
+          </a>
+        </ng-container>
+      </div>
+      <div class="fs-5 mb-2">
+        <!-- <span class="text-decoration-line-through"></span> -->
+        <span class="text-success">Progresso Total</span>
+        <div class="progress mt-1">
+          <div class="progress-bar bg-success" role="progressbar"
+            style="width: 0{{ calculateProgress(campaign.item) < 20 ? 20 : calculateProgress(campaign.item) }}%;"
+            aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+            {{ calculateProgress(campaign.item) | number : "2.0-0" }}%
+          </div>
+        </div>
+      </div>
+
+      <p class="lead">{{ campaign.resume }}</p>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Informações detalhadas
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-success" id="exampleModalLabel">
+                INFORMAÇÕES DETALHADAS
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+              <ng-container *ngIf="campaign.item.length > 0; else elseTemplateEmpty">
+                <div class="progress_bar" *ngFor="let item of campaign.item; index as i">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-success" id="exampleModalLabel">
+                      {{ item.item_name | titlecase }}
+                    </h5>
+                  </div>
+                  <h6 class="text-success ms-2 mt-2">Descrição do produto</h6>
+                  <p class="ms-2">{{ item.item_description }}</p>
+                  <table class="table">
+                    <thead>
+                      <th class="text-warning" colspan="4">
+                        Unidade de medida: {{ item.type | titlecase }}
+                      </th>
+                      <tr>
+                        <th class="text-success" scope="col">#</th>
+                        <th class="text-success" scope="col">Solicitada</th>
+                        <th class="text-success" scope="col">Arrecadada</th>
+                        <th class="text-success" scope="col">Restante</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th class="text-success" scope="row">{{i+1}}</th>
+                        <td>{{ item.required_value }}</td>
+                        <td>{{ item.current_value }}</td>
+                        <td>{{ item.required_value - item.current_value }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </ng-container>
+              <ng-template #elseTemplateEmpty>
+                <p>Nenhuma resultado encontrado</p>
+              </ng-template>
+
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-5 mb-4">
+        <!-- TODO: colocar um card "sanfona" para vizualizar as informações de um item em especifico -->
+        <ng-container *ngIf="campaign.item.length > 0; else elseTemplateEmpty">
+          <div class="progress_bar" *ngFor="let item of campaign.item; index as i">
+            <!--<p>Nome do Item: {{item.item_name}}</p>
+<p>Medida: {{item.type}}</p>
+<p>Quantidade arrecadada: {{item.current_value}}</p>
+<p>Quantidade necessária: {{item.required_value}}</p>
+<p>Descrição do item: {{item.item_description}}</p>-->
+            <div class="pro-bar">
+              <div class="progress_bar_title text-success">
+                <!--<span>Progresso</span>-->
+                <span>{{ item.item_name | titlecase }}</span>
+                <span class="progress_number mt-1 text-success">{{
+                  calculateItemProgress(item) | number : "2.0-0"
+                  }}%</span>
+              </div>
+              <span class="progress-bar-inner bg-success"
+                style="width: 0{{ calculateItemProgress(item) > 100 ?  100: calculateItemProgress(item)}}%;"
+                data-value="89" data-percentage-value="89"></span>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #elseTemplateEmpty>
+          <p>Nenhuma resultado encontrado</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>

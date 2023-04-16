@@ -1,0 +1,111 @@
+<!-- LISTAR: TODOS OS USUÁRIOS LOGADOS OU NÃO -->
+<!-- CADASTRAR: SOMENTE INSTITUIÇÃO -->
+<!-- VISUALIZAR: TODOS OS USUÁRIOS LOGADOS OU NÃO -->
+<!-- ATUALIZAR: SOMENTE INSTITUIÇÃO -->
+<!-- DESATIVAR: INSTITUIÇÃO E ADMINISTRADOR -->
+<!-- FINALIZAR: INSTITUIÇÃO -->
+<!-- DAR LIKE: DOADOR E INSTITUIÇÃO -->
+<!-- COMPARTILHAR: TODOS OS USUÁRIOS LOGADOS -->
+<!-- DENUNCUAR: SOMENTE USUÁRIO DOADOR -->
+
+<!-- LISTAR:  -->
+<!-- CADASTRAR:  -->
+<!-- VISUALIZAR:  -->
+<!-- ATUALIZAR:  -->
+<!-- DESATIVAR:  -->
+<div class="container my-3">
+  <!--<ng-container *ngIf="getUsuario().role == 'ROLE_INSTITUTION'">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h4 class="text-success mb-4">Funções Administrativas</h4>
+        <a href="/campanhas/cadastrar" class="btn btn-primary flex-shrink-0 me-2" type="button">
+          <i class="bi bi-tools"></i>
+          Cadastrar campanha
+        </a>
+      </div>
+    </div>
+    <hr>
+  </ng-container>-->
+  <div class="row gx-5 my-5 justify-content-center">
+    <div class="col-8">
+      <div class="input-group rounded">
+        <input (keyup)="search($event.target)" type="search" class="form-control rounded" placeholder="Buscar por titulo..." aria-label="Search"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row gx-5 my-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6">
+      <div class="text-center">
+        <h2 class="fw-bolder text-success">Todas as Campanhas</h2>
+        <p class="lead fw-normal text-muted">Veja lista de todas as campanhas</p>
+      </div>
+    </div>
+  </div>
+  <!-- TODO: [Sugestão] colocar um botão de saiba mais pois não fica implicito que ele pode ver as informações. -->
+  <!-- TODO: colocar o contador de pessoas que curtiram tal campanha. -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <ng-container *ngIf="registros.length > 0; else elseTemplateEmpty">
+          <div class="col-lg-4 mb-5" *ngFor="let campaign of registros; index as i;">
+            <div class="card h-100 shadow border-0">
+              <img class="card-img-top" src="{{apiUrl}}/image/{{campaign.cover_image}}" alt="..." />
+              <div class="card-body p-4">
+                <!-- TODO: essas "categorias" são boas a nivel de applicação mas ainda não fizemos nada que filtre isso. -->
+                <div class="badge bg-success bg-gradient rounded-pill mb-2 me-1">Apoio Social</div>
+                <!-- <div class="badge bg-success bg-gradient rounded-pill mb-2 me-1">{{campaign.category | titlecase}}</div> -->
+                <a class="text-decoration-none link-success fw-bold stretched-link"
+                  href="/campanhas/visualizar/{{campaign.id}}">
+                  <h5 class="card-title my-2">{{campaign.title}}</h5>
+                </a>
+                <p class="card-text">{{campaign.resume | slice:0:250}}</p>
+              </div>
+              <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                <div class="mb-4">
+                  <p class="text-success">Progresso da campanha</p>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar"
+                      style="width: 0{{calculateProgress(campaign.item) < 20 ? 20 : calculateProgress(campaign.item)}}%;"
+                      aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{calculateProgress(campaign.item) |
+                      number:'2.0-0'}}%</div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-end justify-content-between">
+                  <div class="d-flex align-items-center text-success">
+                    <span>( <i class="fa fa-thumbs-up"></i> {{ campaign.enjoys.length }} )</span>
+                    <!-- <img class="rounded-circle me-3" src="assets/images/empty/40x40.png" alt="..." /> -->
+                    <div class="small mx-3">
+                      <div class="fw-bold">Em Progresso</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #elseTemplateEmpty>
+          <p>Nenhuma resultado encontrado</p>
+        </ng-template>
+      </div>
+      <nav aria-label="Navegação de página exemplo">
+        <ul class="pagination justify-content-end">
+          <li class="page-item disabled">
+            <a class="page-link text-success" href="#" tabindex="-1">Anterior</a>
+          </li>
+          <ng-container *ngFor="let page of fakeArray; index as i;">
+            <div>
+              <li class="page-item"><a class="page-link text-success" href="campanhas?page={{i}}">{{i+1}}</a></li>
+            </div>
+          </ng-container>
+          <li class="page-item">
+            <a class="page-link text-success" href="#">Próximo</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

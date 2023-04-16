@@ -1,0 +1,25 @@
+# Executar aplicação spring boot no ambiente de desenvolvimento
+
+mvn spring-boot:run
+
+# Baixar/atualizar todas as dependências da aplicação backend
+
+mvn package
+
+# Executar comandos diretamente no banco de dados (senha é: root)
+
+mysql -u root -p
+
+# Instalar dependências da aplicação front-end
+
+npm install
+
+# Executar aplicação angular em ambiente de desenvolvimento (o que está ente colchetes indica que é um comando opcional)
+
+ng serve [--ssl]
+
+# Angular remover um componente
+Remova a referência de linha de importação do arquivo Angular.app.module.ts e, em seguida, exclua manualmente a pasta de componentes do projeto Angular.
+
+# Para criar componente no angular
+ng generate components/{Nome do Componente} [--inline-style]

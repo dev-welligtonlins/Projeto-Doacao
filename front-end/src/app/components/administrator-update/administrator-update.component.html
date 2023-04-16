@@ -1,0 +1,155 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-success">Atualizar Cadastro de Administrador</h1>
+      <form (ngSubmit)="submit()">
+        <hr>
+        <p class="text-success">Informações Gerais</p>
+        <hr>
+        <div class="form-group mb-3">
+          <label for="fullName">Nome Completo</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['fullName'].invalid && (controlForm.controls['fullName'].dirty || controlForm.controls['fullName'].touched), 'is-valid': controlForm.controls['fullName'].valid}"
+            id="fullName" type="text" name="fullName" placeholder="Digite seu nome completo"
+            [(ngModel)]="administrator.fullName" [formControl]="controlForm.controls['fullName']">
+          <div
+            *ngIf="controlForm.controls['fullName'].invalid && (controlForm.controls['fullName'].dirty || controlForm.controls['fullName'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['fullName'].invalid}">
+            <span *ngIf="controlForm.controls['fullName'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['fullName'].errors?.['maxlength']">Digite no máximo 100
+              caracteres</span>
+            <span *ngIf="controlForm.controls['fullName'].errors?.['pattern']">Digite somente letras de A a Z e
+              espaços</span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="email">E-mail</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['email'].invalid && (controlForm.controls['email'].dirty || controlForm.controls['email'].touched), 'is-valid': controlForm.controls['email'].valid}"
+            id="email" type="email" name="email" placeholder="Digite seu e-mail" [(ngModel)]="administrator.email"
+            [formControl]="controlForm.controls['email']">
+          <div
+            *ngIf="controlForm.controls['email'].invalid && (controlForm.controls['email'].dirty || controlForm.controls['email'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['email'].invalid}">
+            <span *ngIf="controlForm.controls['email'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['email'].errors?.['maxlength']">Digite no máximo 100
+              caracteres</span>
+            <span *ngIf="controlForm.controls['email'].errors?.['email']">Digite um email válido</span>
+          </div>
+        </div>
+        <hr>
+        <p class="text-success">Informações de Endereço</p>
+        <hr>
+        <div class="form-group mb-3">
+          <!-- TODO: CEP analisar se utilizar essa API https://viacep.com.br/ws/01001000/json/ -->
+          <label for="postalCode">CEP</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['postalCode'].invalid && (controlForm.controls['postalCode'].dirty || controlForm.controls['postalCode'].touched), 'is-valid': controlForm.controls['postalCode'].valid}"
+            id="postalCode" type="text" name="postalCode" placeholder="Digite o cep"
+            [(ngModel)]="administrator.address.postalCode" [formControl]="controlForm.controls['postalCode']">
+          <div
+            *ngIf="controlForm.controls['postalCode'].invalid && (controlForm.controls['postalCode'].dirty || controlForm.controls['postalCode'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['postalCode'].invalid}">
+            <span *ngIf="controlForm.controls['postalCode'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['postalCode'].errors?.['maxlength']">Digite no máximo 8
+              caracteres</span>
+            <span *ngIf="controlForm.controls['postalCode'].errors?.['pattern']">Digite somente números</span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="country">País</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['country'].invalid && (controlForm.controls['country'].dirty || controlForm.controls['country'].touched), 'is-valid': controlForm.controls['country'].valid}"
+            id="country" type="text" name="country" placeholder="Digite o páis"
+            [(ngModel)]="administrator.address.country" [formControl]="controlForm.controls['country']">
+          <div
+            *ngIf="controlForm.controls['country'].invalid && (controlForm.controls['country'].dirty || controlForm.controls['country'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['country'].invalid}">
+            <span *ngIf="controlForm.controls['country'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['country'].errors?.['maxlength']">Digite no máximo 100
+              caracteres</span>
+            <span *ngIf="controlForm.controls['country'].errors?.['pattern']">Digite somente letras de A a Z</span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="state">Estado</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['state'].invalid && (controlForm.controls['state'].dirty || controlForm.controls['state'].touched), 'is-valid': controlForm.controls['state'].valid}"
+            id="state" type="text" name="state" placeholder="Digite o estado" [(ngModel)]="administrator.address.state"
+            [formControl]="controlForm.controls['state']">
+          <div
+            *ngIf="controlForm.controls['state'].invalid && (controlForm.controls['state'].dirty || controlForm.controls['state'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['state'].invalid}">
+            <span *ngIf="controlForm.controls['state'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['state'].errors?.['maxlength']">Digite no máximo 100
+              caracteres</span>
+            <span *ngIf="controlForm.controls['state'].errors?.['pattern']">Digite somente letras de A a Z</span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="city">Cidade</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['city'].invalid && (controlForm.controls['city'].dirty || controlForm.controls['city'].touched), 'is-valid': controlForm.controls['city'].valid}"
+            id="city" type="text" name="city" placeholder="Digite a cidade" [(ngModel)]="administrator.address.city"
+            [formControl]="controlForm.controls['city']">
+          <div
+            *ngIf="controlForm.controls['city'].invalid && (controlForm.controls['city'].dirty || controlForm.controls['city'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['city'].invalid}">
+            <span *ngIf="controlForm.controls['city'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['city'].errors?.['maxlength']">Digite no máximo 100
+              caracteres</span>
+            <span *ngIf="controlForm.controls['city'].errors?.['pattern']">Digite somente letras de A a Z</span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="district">Bairro</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['district'].invalid && (controlForm.controls['district'].dirty || controlForm.controls['district'].touched), 'is-valid': controlForm.controls['district'].valid}"
+            id="district" type="text" name="district" placeholder="Digite o bairro"
+            [(ngModel)]="administrator.address.district" [formControl]="controlForm.controls['district']">
+          <div
+            *ngIf="controlForm.controls['district'].invalid && (controlForm.controls['district'].dirty || controlForm.controls['district'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['district'].invalid}">
+            <span *ngIf="controlForm.controls['district'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['district'].errors?.['maxlength']">Digite no máximo 100
+              caracteres</span>
+            <span *ngIf="controlForm.controls['district'].errors?.['pattern']">Digite somente letras de A a Z</span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="location">Logradouro (Rua, Avenida, Travessa)</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['location'].invalid && (controlForm.controls['location'].dirty || controlForm.controls['location'].touched), 'is-valid': controlForm.controls['location'].valid}"
+            id="location" type="text" name="location" placeholder="Digite a localidade"
+            [(ngModel)]="administrator.address.location" [formControl]="controlForm.controls['location']">
+          <div
+            *ngIf="controlForm.controls['location'].invalid && (controlForm.controls['location'].dirty || controlForm.controls['location'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['location'].invalid}">
+            <span *ngIf="controlForm.controls['location'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['location'].errors?.['maxlength']">Digite no máximo 100
+              caracteres</span>
+            <span *ngIf="controlForm.controls['location'].errors?.['pattern']">Digite somente letras de A a Z</span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="number">Número</label>
+          <input class="form-control"
+            [ngClass]="{'is-invalid': controlForm.controls['number'].invalid && (controlForm.controls['number'].dirty || controlForm.controls['number'].touched), 'is-valid': controlForm.controls['number'].valid}"
+            id="number" type="text" name="number" placeholder="Digite o número"
+            [(ngModel)]="administrator.address.number" [formControl]="controlForm.controls['number']">
+          <div
+            *ngIf="controlForm.controls['number'].invalid && (controlForm.controls['number'].dirty || controlForm.controls['number'].touched)"
+            [ngClass]="{'invalid-feedback': controlForm.controls['number'].invalid}">
+            <span *ngIf="controlForm.controls['number'].errors?.['required']">Preencha esse campo</span>
+            <span *ngIf="controlForm.controls['number'].errors?.['maxlength']">Digite no máximo 100
+              caracteres</span>
+            <span *ngIf="controlForm.controls['number'].errors?.['pattern']">Digite somente letras de A a Z</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Atualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

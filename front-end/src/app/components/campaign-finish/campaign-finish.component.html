@@ -1,0 +1,14 @@
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-12">
+            <form (ngSubmit)="submit(form)" #form="ngForm">
+                <h1 class="mt-4 text-success">Finalizar Campanha</h1>
+                <div class="form-group mt-3">
+                    <label for="result">Relatório</label>
+                    <textarea id="result" type="text" name="result" placeholder="Descreva os resultados obtidos" class="form-control" rows="15" [(ngModel)]="registro.result"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success mt-3 mb-5">Finalizar Campanha</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+<div class="container my-3">
+  <ng-container *ngIf="getUsuario().role == 'ROLE_ADMIN' && institution.pending == false">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h4 class="text-success mb-4">Funções Administrativas</h4>
+        <a href="/instituicoes/validar/{{institution.id}}" class="btn btn-info text-white flex-shrink-0 me-2"
+          type="button">
+          <i class="bi bi-tools"></i>
+          Validar
+        </a>
+      </div>
+    </div>
+    <hr>
+  </ng-container>
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <ng-container *ngIf="institution.pending != true">
+          <div class="alert alert-danger" role="alert">Essa instituição não foi verificada!</div>
+        </ng-container>
+        <h1 class="text-success">{{institution.fantasy_name}}</h1>
+        <p>{{institution.resume}}</p>
+        <div class="d-flex my-4">
+          <!-- TODO: poder dar unfollow -->
+          <button class="btn btn-outline-success flex-shrink-0 me-2" type="button"
+            (click)="registerFollow(user.id, institution.id)">
+            <i class="bi bi-person-heart"></i>
+            Seguir Instituição
+          </button>
+          <!-- TODO: poder desamarcar como confiavel. -->
+          <button class="btn btn-outline-success flex-shrink-0 me-2" type="button"
+            (click)="registerTrust(user.id, institution.id)">
+            <i class="bi bi-megaphone-fill"></i>
+            Marcar como confiável
+          </button>
+        </div>
+        <p><strong class="text-success">{{institution.follows.length}}</strong> estão seguindo essa instituição.</p>
+        <p><strong class="text-success">{{institution.trusts.length}}</strong> pessoas marcaram essa instituição como
+          confiável.</p>
+        <img class="card-img-top" src="{{apiUrl}}/image/{{institution.cover_image}}" style="max-height: 30em;"
+          alt="Card image cap">
+        <p class="mt-3"><b>Razão Social:</b> {{institution.corporate_name}}</p>
+        <p><b>CNPJ:</b> {{institution.cnpj}}</p>
+        <p><b>E-mail:</b> {{institution.email}}</p>
+        <p><b>Telefone:</b> {{institution.phone}}</p>
+        <p><b>Rede Social Principal:</b> {{institution.linkMain}}</p>
+        <p><b>Rede Social Alternativa:</b> {{institution.linkAlternate}}</p>
+      </div>
+      <div>
+        <h2 class="text-success">Mais sobre a instituição</h2>
+        <p>{{institution.description}}</p>
+      </div>
+      <div>
+        <h2 class="text-success">Quem Somos</h2>
+        <p>{{institution.about}}</p>
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          <h4 class="text-success">Missão</h4>
+          <p>{{institution.mission}}</p>
+        </div>
+        <div class="col">
+          <h4 class="text-success">Visão</h4>
+          <p>{{institution.vision}}</p>
+        </div>
+        <div class="col">
+          <h4 class="text-success">Valores</h4>
+          <p>{{institution.value}}</p>
+        </div>
+      </div>
+      <div class="row gx-5 my-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+        </div>
+        <section>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title text-success">Local de Arrecadação</h4>
+              <hr class="text-success">
+              <p class="small"><span class="text-success">E-mail: </span>{{institution.email}}</p>
+              <p class="small"><span class="text-success">Telefone: </span>{{institution.phone}}</p>
+              <p class="small"><span class="text-success">Rede Social Principal: </span>{{institution.linkMain}}</p>
+              <p class="small"><span class="text-success">Rede Social Alternativa: </span>{{institution.linkAlternate}}</p>
+              <hr class="text-success">
+              <p class="small"><span class="text-success">País: </span>{{institution.address.country}}</p>
+              <p class="small"><span class="text-success">Estado: </span>{{institution.address.state}}</p>
+              <p class="small"><span class="text-success">Cidade: </span>{{institution.address.city}}</p>
+              <p class="small"><span class="text-success">Bairro: </span>{{institution.address.district}}</p>
+              <p class="small"><span class="text-success">Número: </span>{{institution.address.number}}</p>
+              <p class="small"><span class="text-success">CEP: </span>{{institution.address.postalCode}}</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="row gx-5 my-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+          <div class="text-center">
+            <h2 class="fw-bolder text-success">Últimas as Campanhas</h2>
+            <p class="lead fw-normal text-muted">Veja lista das campanhas</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <ng-container *ngIf="institution.campaigns.length > 0; else elseTemplateEmpty">
+          <div class="col-lg-4 mb-5" *ngFor="let campaign of institution.campaigns; index as i;">
+            <div class="card h-100 shadow border-0">
+              <img class="card-img-top" src="{{apiUrl}}/image/{{campaign.cover_image}}" alt="..." />
+              <div class="card-body p-4">
+                <div class="badge bg-success bg-gradient rounded-pill mb-2 me-1">{{campaign.category | titlecase}}</div>
+                <a class="text-decoration-none link-success fw-bold stretched-link"
+                  href="/campanhas/visualizar/{{campaign.id}}">
+                  <h5 class="card-title my-2">{{campaign.title}}</h5>
+                </a>
+                <p class="card-text">{{campaign.description | slice:0:250}}</p>
+              </div>
+              <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                <div class="mb-4">
+                  <p class="text-success">Progresso da campanha</p>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar"
+                      style="width: 0{{calculateProgress(campaign.item) < 20 ? 20 : calculateProgress(campaign.item)}}%;"
+                      aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{calculateProgress(campaign.item) |
+                      number:'2.0-0'}}%</div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-end justify-content-between">
+                  <div class="d-flex align-items-center text-success">
+                    <span>( <i class="fa fa-thumbs-up"></i> {{ campaign.enjoys.length }} )</span>
+                    <!-- <img class="rounded-circle me-3" src="assets/images/empty/40x40.png" alt="..." /> -->
+                    <div class="small mx-3">
+                      <div class="fw-bold">Em Progresso</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #elseTemplateEmpty>
+          <p>Nenhuma resultado encontrado</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

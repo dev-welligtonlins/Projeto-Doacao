@@ -1,0 +1,55 @@
+<div class="container my-3">
+    <ng-container *ngIf="getUsuario().role == 'ROLE_INSTITUTION' || getUsuario().role == 'ROLE_ADMIN'">
+        <div class="row my-4">
+            <div class="col-md-12">
+                <h4 class="text-success mb-4">Funções Administrativas</h4>
+                <!--<a href="/doadores/atualizar/{{donor.id}}" class="btn btn-primary flex-shrink-0 me-2"
+                    type="button">
+                    <i class="bi bi-tools"></i>
+                    Atualizar
+                </a>-->
+                <a href="/doadores/desativar/{{donor.id}}" class="btn btn-danger flex-shrink-0 me-2"
+                    type="button">
+                    <i class="bi bi-tools"></i>
+                    Desativar
+                </a>
+            </div>
+        </div>
+        <hr>
+    </ng-container>
+    <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                    class="rounded-circle mt-5" width="150px"
+                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                    class="font-weight-bold">{{donor.fullName}}</span><span
+                    class="text-black-50">{{donor.email}}</span><span> </span></div>
+        </div>
+        <div class="col-md-6 py-5 text-right">
+            <div class="fs-5 my-2">
+                <span class="mt-1 text-success">Nome Completo:</span>
+                <output type="text" class="form-control text-uppercase mt-2" value="{{donor.fullName}}"></output>
+            </div>
+            <div class="fs-5 my-2">
+                <span class="mt-1 text-success">Cpf:</span>
+                <output type="text" class="form-control text-uppercase mt-2" value="{{donor.cpf}}"></output>
+            </div>
+            <div class="fs-5 my-2">
+                <span class="mt-1 text-success">E-mail:</span>
+                <output type="text" class="form-control text-uppercase mt-2" value="{{donor.email}}"></output>
+            </div>
+            <div class="fs-5 my-2">
+                <span class="mt-1 text-success">Gênero:</span>
+                <output type="text" class="form-control text-uppercase mt-2" value="{{donor.gender}}"></output>
+            </div>
+            <div class="fs-5 my-2">
+                <span class="mt-1 text-success">Aniversario:</span>
+                <output type="date" class="form-control text-uppercase mt-2" value="{{donor.birthDate}}"></output>
+            </div>
+            <div class="fs-5 my-2">
+                <span class="mt-1 text-success">Ativo?:</span>
+                <p class="mt-2 text-uppercase">{{donor.active}}</p>
+            </div>            
+        </div>
+    </div>
+</div>

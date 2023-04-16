@@ -1,0 +1,332 @@
+<div class="container">
+  <ng-container *ngIf="getUsuario().role == 'ROLE_ADMIN'">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h4 class="text-success mb-4">Funções Administrativas</h4>
+        <a href="/administradores/atualizar/{{administrator.id}}" class="btn btn-primary flex-shrink-0 me-2"
+          type="button">
+          <i class="bi bi-tools"></i>
+          Atualizar
+        </a>
+        <a href="/administradores/desativar/{{administrator.id}}" class="btn btn-danger flex-shrink-0 me-2"
+          type="button">
+          <i class="bi bi-tools"></i>
+          Desativar
+        </a>
+      </div>
+    </div>
+    <hr>
+  </ng-container>
+  <ng-container *ngIf="getUsuario().role == 'ROLE_INSTITUTION'">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h4 class="text-success mb-4">Funções Administrativas</h4>
+        <!--<a href="/campanhas/cadastrar" class="btn btn-success flex-shrink-0 me-2" type="button">
+                    <i class="bi bi-tools"></i>
+                    Cadastrar campanha
+                </a>-->
+        <a href="/instituicoes/visualizar/{{institution.id}}" class="btn btn-primary flex-shrink-0 me-2" type="button">
+          <i class="bi bi-tools"></i>
+          Minha Instituição
+        </a>
+        <a href="/instituicoes/{{institution.id}}/campanhas" class="btn btn-primary flex-shrink-0 me-2" type="button">
+          <i class="bi bi-tools"></i>
+          Minhas Campanhas
+        </a>
+        <a href="/instituicoes/atualizar/{{institution.id}}" class="btn btn-primary flex-shrink-0 me-2" type="button">
+          <i class="bi bi-tools"></i>
+          Atualizar
+        </a>
+        <a href="/instituicoes/desativar/{{institution.id}}" class="btn btn-danger flex-shrink-0 me-2" type="button">
+          <i class="bi bi-tools"></i>
+          Desativar
+        </a>
+      </div>
+    </div>
+    <hr>
+  </ng-container>
+  <ng-container *ngIf="getUsuario().role == 'ROLE_DONOR'">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h4 class="text-success mb-4">Funções Administrativas</h4>
+        <a href="/doadores/atualizar/{{donor.id}}" class="btn btn-primary flex-shrink-0 me-2" type="button">
+          <i class="bi bi-tools"></i>
+          Atualizar
+        </a>
+        <a href="/doadores/desativar/{{donor.id}}" class="btn btn-danger flex-shrink-0 me-2" type="button">
+          <i class="bi bi-tools"></i>
+          Desativar
+        </a>
+      </div>
+    </div>
+    <hr>
+  </ng-container>
+  <div class="row">
+    <ng-container *ngIf="getUsuario().role == 'ROLE_ADMIN'">
+      <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+          <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <img class="rounded-circle mt-5" width="150px" src="{{apiUrl}}/image/{{administrator.cover_image}}">
+              <span class="font-weight-bold">{{administrator.fullName}}</span>
+              <span class="text-black-50">{{administrator.email}}</span>
+            </div>
+          </div>
+          <div class="col-md-5 border-right">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-success">Dados Cadastrados</h4>
+              </div>
+              <hr>
+              <p class="text-success">Informações Gerais</p>
+              <hr>
+              <div class="row mt-2">
+                <div class="col-md-12"><label class="labels">Nome</label><output type="text"
+                    class="form-control border-primary" value="{{administrator.fullName}}"></output>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-12"><label class="labels">E-mail</label><output type="text"
+                    class="form-control border-primary" value="{{administrator.email}}"></output>
+                </div>
+              </div>
+              <hr>
+              <p class="text-success">Informações de Endereço</p>
+              <hr>
+              <div class="row md-12">
+                <div class="col-md-9"><label class="labels">Logradouro</label><output type="text"
+                    class="form-control border-primary" value="{{administrator.address.location}}"></output></div>
+                <div class="col-md-3"><label class="labels">Número</label><output type="text"
+                    class="form-control border-primary" value="{{administrator.address.number}}"></output></div>
+              </div>
+              <div class="col-md-12 mt-2"><label class="labels">Bairro</label><output type="text"
+                  class="form-control border-primary" placeholder="entre com o endereço 2"
+                  value="{{administrator.address.district}}"></output>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6"><label class="labels">CEP</label><output type="text"
+                    class="form-control border-primary" value="{{administrator.address.postalCode}}"></output>
+                </div>
+                <div class="col-md-6"><label class="labels">Cidade</label><output type="text"
+                    class="form-control border-primary" value="{{administrator.address.city}}"></output>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6"><label class="labels">Estado</label><output type="text"
+                    class="form-control border-primary" placeholder="estado"
+                    value="{{administrator.address.state}}"></output></div>
+                <div class="col-md-6"><label class="labels">País</label><output type="text"
+                    class="form-control border-primary" value="{{administrator.address.country}}"
+                    placeholder="state"></output></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="getUsuario().role == 'ROLE_INSTITUTION'">
+      <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+          <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img class="rounded-circle mt-5" width="150px" src="{{apiUrl}}/image/{{institution.cover_image}}">
+              <span class="font-weight-bold">{{institution.corporate_name}}</span>
+              <span class="text-black-50">{{institution.cnpj}}</span>
+            </div>
+          </div>
+          <div class="col-md-5 border-right">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-success">Dados Cadastrados</h4>
+              </div>
+              <hr>
+              <p class="text-success">Informações Gerais</p>
+              <hr>
+              <div class="row mt-2">
+                <div class="col-md-12"><label class="labels">Razão Social</label><output type="text"
+                    class="form-control border-primary" value="{{institution.corporate_name}}"></output>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-12"><label class="labels">Nome Fantasia</label><output type="text"
+                    class="form-control  border-primary" value="{{institution.fantasy_name}}"></output></div>
+              </div>
+              <div class="row md-12">
+                <div class="col-md-7 mt-2"><label class="labels">CNPJ</label><output type="text"
+                    class="form-control  border-primary" value="{{institution.cnpj}}"></output>
+                </div>
+                <div class="col-md-5 mt-2"><label class="labels">Data de Abertura</label><output type="text"
+                    class="form-control  border-primary" value="{{institution.opening_date}}"></output>
+                </div>
+                <div class="mt-2">
+                  <label class="labels">Descrição de Atividade Economica</label>
+                  <output type="text" class="form-control  border-primary" placeholder="entre com o endereço 2"
+                    value="{{institution.resume}}"></output>
+                </div>
+              </div>
+              <hr>
+              <p class="text-success">Informações de Endereço</p>
+              <hr>
+              <div class="row md-12">
+                <div class="col-md-9"><label class="labels">Logradouro</label><output type="text"
+                    class="form-control border-primary" value="{{institution.address.location}}"></output></div>
+                <div class="col-md-3"><label class="labels">Número</label><output type="text"
+                    class="form-control border-primary" value="{{institution.address.number}}"></output></div>
+              </div>
+              <div class="col-md-12 mt-2"><label class="labels">Bairro</label><output type="text"
+                  class="form-control border-primary" placeholder="entre com o endereço 2"
+                  value="{{institution.address.district}}"></output></div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">CEP</label><output type="text"
+                  class="form-control border-primary" value="{{institution.address.postalCode}}"></output>
+              </div>
+              <div class="col-md-6"><label class="labels">Cidade</label><output type="text"
+                  class="form-control border-primary" value="{{institution.address.city}}"></output>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">Estado</label><output type="text"
+                  class="form-control border-primary" placeholder="estado"
+                  value="{{institution.address.state}}"></output></div>
+              <div class="col-md-6"><label class="labels">País</label><output type="text"
+                  class="form-control border-primary" value="{{institution.address.country}}"
+                  placeholder="state"></output></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </ng-container>
+    <ng-container *ngIf="getUsuario().role == 'ROLE_DONOR'">
+      <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+          <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img class="rounded-circle mt-5" width="150px" src="{{apiUrl}}/image/{{donor.cover_image}}">
+              <span class="font-weight-bold">{{donor.fullName}}</span>
+              <span class="text-black-50">{{donor.email}}</span>
+            </div>
+          </div>
+          <div class="col-md-5 border-right">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-success">Dados Cadastrados</h4>
+              </div>
+              <hr>
+              <p class="text-success">Informações Gerais</p>
+              <hr>
+              <div class="row mt-2">
+                <div class="col-md-12">
+                  <label class="labels">Nome</label>
+                  <output type="text" class="form-control border-primary" value="{{donor.fullName}}"></output>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-12">
+                  <label class="labels">E-mail</label>
+                  <output type="text" class="form-control border-primary" value="{{donor.email}}"></output>
+                </div>
+                <div class="col-md-12 mt-2">
+                  <label class="labels">Cpf</label>
+                  <output type="text" class="form-control border-primary" value="{{donor.cpf}}"></output>
+                </div>
+                <div class="col-md-12 mt-2">
+                  <label class="labels">Data de Nascimento</label>
+                  <output type="text" class="form-control border-primary" value="{{donor.birthDate}}"></output>
+                </div>
+                <div class="col-md-12 mt-2">
+                  <label class="labels">Gênero</label>
+                  <output type="text" class="form-control border-primary" value="{{donor.gender}}"></output>
+                </div>
+              </div>
+              <hr>
+              <p class="text-success">Informações de Endereço</p>
+              <hr>
+              <div class="row md-12">
+                <div class="col-md-9"><label class="labels">Logradouro</label><output type="text"
+                    class="form-control border-primary" value="{{donor.address.location}}"></output>
+                </div>
+                <div class="col-md-3"><label class="labels">Número</label><output type="text"
+                    class="form-control border-primary" value="{{donor.address.number}}"></output>
+                </div>
+                <div class="col-md-12"><label class="labels">Bairro</label><input type="text"
+                    class="form-control border-primary" placeholder="entre com o endereço 2"
+                    value="{{donor.address.district}}">
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-6"><label class="labels">CEP</label><input type="text"
+                    class="form-control border-primary" value="{{donor.address.postalCode}}">
+                </div>
+                <div class="col-md-6"><label class="labels">Cidade</label><output type="text"
+                    class="form-control border-primary" value="{{donor.address.city}}"></output>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6"><label class="labels">Estado</label><input type="text"
+                    class="form-control border-primary" placeholder="estado" value="{{donor.address.state}}"></div>
+                <div class="col-md-6"><label class="labels">País</label><input type="text"
+                    class="form-control border-primary" value="{{donor.address.country}}" placeholder="state"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 border-left ">
+            <div class="col-md-12 d-flex justify-content-center">
+              <div>
+                <h4 class="text-success">Instituições Seguidas</h4>
+                <ng-container *ngIf="userInstitutionFollows.length > 0; else elseTemplateEmpty">
+                  <ng-container *ngFor="let institution of userInstitutionFollows; index as i;">
+                    <div class="mt-2 mx-3">
+                      <a style="color:black;" href="/instituicoes/visualizar/{{institution.id}}"
+                        title="">{{institution.fantasy_name}}</a>
+                    </div>
+                  </ng-container>
+                </ng-container>
+                <ng-template #elseTemplateEmpty>
+                  <p>Nenhuma resultado encontrado.</p>
+                </ng-template>
+                <h4 class="text-success mt-2">Instituições Confiadas</h4>
+                <ng-container *ngIf="userInstitutionTrusts.length > 0; else elseTemplateEmpty">
+                  <ng-container *ngFor="let institution of userInstitutionTrusts; index as i;">
+                    <div class="mt-2 mx-3">
+                      <a style="color:black;" href="/instituicoes/visualizar/{{institution.id}}"
+                        title="">{{institution.fantasy_name}}</a>
+                    </div>
+                  </ng-container>
+                </ng-container>
+                <ng-template #elseTemplateEmpty>
+                  <p>Nenhuma resultado encontrado.</p>
+                </ng-template>
+                <h4 class="text-success mt-2">Campanhas Curtidas</h4>
+                <ng-container *ngIf="userCampaignEnjoys.length > 0; else elseTemplateEmpty">
+                  <ng-container *ngFor="let campaign of userCampaignEnjoys; index as i;">
+                    <div class="mt-2 mx-3">
+                      <a style="color:black;" href="/campanhas/visualizar/{{campaign.id}}"
+                        title="">{{campaign.title}}</a>
+                    </div>
+                  </ng-container>
+                </ng-container>
+                <ng-template #elseTemplateEmpty>
+                  <p>Nenhuma resultado encontrado.</p>
+                </ng-template>
+                <h4 class="text-success mt-2">Denúncias Realizadas</h4>
+                <ng-container *ngIf="userDenounces.length > 0; else elseTemplateEmpty">
+                  <ng-container *ngFor="let denounce of userDenounces; index as i;">
+                    <div class="mt-2 mx-3">
+                      <a style="color:black;" href="/denuncias/visualizar/{{denounce.id}}"
+                        title="">{{denounce.title}}</a>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+  </div>
+  <!-- </div> -->

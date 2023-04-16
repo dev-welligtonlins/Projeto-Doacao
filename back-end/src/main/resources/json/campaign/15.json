@@ -1,0 +1,14 @@
+{
+    "cover_image": "img15.jpg",
+    "title": "Campanha Projeto Especial",
+    "resume": "Essa é uma campanha que tem o objetivo de ajudar pessoas que estão passando por momentos de necessidade.",
+    "description": "Essa é uma campanha que tem o objetivo de arrecadar produtos para ajudar pessaos carentes que mais precisam de ajuda no momento de necessidade e precisam de ajuda.",
+    "item": [
+        {
+            "item_name": "Cesta Básica",
+            "type": "UNIDADE",
+            "required_value": 100,
+            "item_description": "Precisamos arrecadar 100 KG de cesta básica para realizar doações."
+        }
+    ]
+}

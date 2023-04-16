@@ -1,0 +1,199 @@
+[
+  {
+    "_id": "f22c1794-253d-40dd-9480-e7d3ed7c1113",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:9000/administrator/",
+    "url": "http://localhost:9000/administrator/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-03T11:55:08.569Z",
+    "modified": "2023-02-03T12:38:41.485Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "admin",
+        "password": "admin"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "2d27ad59-e585-46cc-a15c-134dcf1a7fe0",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:9000/administrator/ Copy",
+    "url": "http://localhost:9000/item/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-03T11:55:08.569Z",
+    "modified": "2023-02-03T12:23:16.820Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "admin",
+        "password": "admin"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "98303ff1-391f-42ff-993c-88a416f99890",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:9000/administrator/ Copy",
+    "url": "http://localhost:9000/administrator/",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-03T11:55:08.569Z",
+    "modified": "2023-02-03T12:36:15.519Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"address\": {\n    \"postalCode\": \"69911001\",\n    \"country\": \"Brasil\",\n    \"state\": \"Acre\",\n    \"city\": \"Rio Branco\",\n    \"district\": \"Bairro do Planalto\",\n    \"location\": \"Rua do Poliana\",\n    \"number\": \"358\"\n  },\n  \"user\": {\n    \"username\": \"admin4\",\n    \"password\": \"admin4\",\n    \"role\": \"ROLE_ADMIN\",\n    \"active\": true\n  },\n  \"fullName\": \"Quarto Administrador\",\n  \"email\": \"admin04@email.com\",\n  \"active\": true\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "admin",
+        "password": "admin"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "3a3e1eb8-c4c4-4c75-b9c6-57f01e712859",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:9000/administrator/ Copy",
+    "url": "http://localhost:9000/administrator/",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-02-03T11:55:08.569Z",
+    "modified": "2023-02-03T12:50:00.702Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": 1,\n  \"address\": {\n    \"id\": 1,\n    \"postalCode\": \"2222\",\n    \"country\": \"Brasil\",\n    \"state\": \"Acre\",\n    \"city\": \"Rio Branco\",\n    \"district\": \"Bairro do Planalto\",\n    \"location\": \"Rua do Poliana\",\n    \"number\": \"358\"\n  },\n  \"user\": {\n    \"id\": 1,\n    \"username\": \"2222\",\n    \"role\": \"ROLE_ADMIN\",\n    \"active\": true\n  },\n  \"fullName\": \"2222\",\n  \"email\": \"admin01@email.com\",\n  \"active\": true\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "admin",
+        "password": "admin"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "34a1e362-0a2d-4c66-8f5b-a1e55cf1466f",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:9000/donor/",
+    "url": "localhost:9000/institution/?page=0",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-03T20:14:02.598Z",
+    "modified": "2023-02-09T23:02:33.743Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "page",
+        "value": "0",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "admin",
+        "password": "admin"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "dddfe5ae-e6d6-4af9-81ca-800b997edcb1",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:9000/institution/user/1",
+    "url": "localhost:9000/institution/user/100",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-03T20:14:02.598Z",
+    "modified": "2023-02-16T23:54:26.504Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "admin100",
+        "password": "admin"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "dda4a8e2-8dcf-44ba-9a5f-4e9ca434c4e6",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:9000/institution/user/1 Copy",
+    "url": "localhost:9000/campaign/?page=1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-03T20:14:02.598Z",
+    "modified": "2023-02-17T00:10:43.689Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "page",
+        "value": "1",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "admin100",
+        "password": "admin"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "34e60ccf-3463-46f2-9a61-9582df408ce1",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:9000/user/follows/3",
+    "url": "http://localhost:9000/user/follows/3",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-20T17:35:48.655Z",
+    "modified": "2023-02-20T18:13:28.806Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1d14e73a-075e-45bf-9528-ffea018f86ca",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:9000/institution/generate",
+    "url": "http://localhost:9000/institution/generate",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-23T11:50:37.042Z",
+    "modified": "2023-02-23T11:50:37.042Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

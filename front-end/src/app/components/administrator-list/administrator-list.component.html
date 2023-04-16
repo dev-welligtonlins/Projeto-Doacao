@@ -1,0 +1,48 @@
+<!-- LISTAR: SOMENTE ADMINISTRADOR -->
+<!-- CADASTRAR: SOMENTE ADMINISTRADOR -->
+<!-- VISUALIZAR: SOMENTE ADMINISTRADOR -->
+<!-- ATUALIZAR: SOMENTE ADMINISTRADOR -->
+<!-- DESATIVAR: SOMENTE ADMINISTRADOR -->
+<div class="container my-3">
+  <div class="row my-4">
+    <div class="col-md-12">
+      <h4 class="text-success mb-4">Funções Administrativas</h4>
+      <a href="/administradores/cadastrar" class="btn btn-primary flex-shrink-0 me-2" type="button">
+        <i class="bi bi-tools"></i>
+        Cadastrar administrador
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div class="row gx-5 my-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6">
+      <div class="text-center">
+        <h2 class="fw-bolder text-success">Todos os Administradores</h2>
+        <p class="lead fw-normal text-muted">Veja lista de administradores</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <ng-container *ngIf="administrators.length > 0; else elseTemplateEmpty">
+          <div class="col-lg-4 mb-5" *ngFor="let administrator of administrators; index as i;">
+            <div class="card h-100 shadow border-0">
+              <img class="card-img-top" src="assets/images/empty/600x350.png" alt="..." />
+              <div class="card-body p-4">
+                <a class="text-decoration-none link-success fw-bold stretched-link"
+                  href="administradores/visualizar/{{administrator.id}}">
+                  <h5 class="card-title my-2">{{administrator.fullName}}</h5>
+                </a>
+                <p class="card-text">{{administrator.email}}</p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #elseTemplateEmpty>
+          <p>Nenhuma resultado encontrado</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

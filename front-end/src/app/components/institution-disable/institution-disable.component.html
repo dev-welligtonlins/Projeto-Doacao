@@ -1,0 +1,54 @@
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5">
+            <!--<div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"src="assets/images/{{showImage()}}" alt="..." /></div>-->
+            <div class="col-md-6">
+                <div class="small mb-1"></div>
+                <h1 class="text-success display-5 fw-bolder">{{registro.corporate_name}}</h1>
+                <div class="text-muted fst-italic mb-2">Postado em 25 de janeiro de 2023 por ONG do Animais</div>
+                <!-- Post categories-->
+                <a class="badge bg-success text-decoration-none link-light me-1" href="#!">Animais</a>
+                <a class="badge bg-success text-decoration-none link-light" href="#!">Cães e gatos</a>
+
+                <div class="fs-5 my-2">
+                    <!-- <span class="text-decoration-line-through"></span> -->
+                    <span class="mt-1 text-success">Nome Fantasia:</span>
+                    <p class="mt-2 text-uppercase">{{registro.fantasy_name}}</p>
+
+                </div>
+                <div class="fs-5 mb-2">
+                    <!-- <span class="text-decoration-line-through"></span> -->
+                    <span class="mt-1 text-success">Descrição de Atividades:</span>
+                    <p>{{registro.description}}</p>
+                </div>
+
+
+                <div class="fs-5 mb-5">
+                    <!-- <span class="text-decoration-line-through"></span> -->
+                    <span class="mt-1 text-success">CNPJ:</span>
+                    <p class="mt-0">{{registro.cnpj}}</p>
+
+                    <span class="mt-1 text-success">Data de Abertura(CNPJ):</span>
+                    <p class="mt-0">{{registro.opening_date}}</p>
+
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <h1 class="text-success">Termo de consentimento</h1>
+                <div>
+                    <h4><input class="form-check-input text-success" type="checkbox" value="1"
+                            (change)="checkValue($event)"> Desativar Instituição</h4>
+                    <p>Estou ciente que essa instituição será desativada.</p>
+                </div>
+                <div class="d-flex">
+                    <button (click)="submit()" [disabled]="isChecked == false"
+                        class="btn btn-danger flex-shrink-0 me-2" type="button">
+                        <i class="bi bi-building-check"></i>
+                        Desativar Instituição
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

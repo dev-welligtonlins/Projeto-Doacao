@@ -1,0 +1,55 @@
+<div class="container my-3">
+    <ng-container *ngIf="getUsuario().role == 'ROLE_ADMIN'">
+        <div class="row my-4">
+            <div class="col-md-12">
+                <h4 class="text-success mb-4">Funções Administrativas</h4>
+                <!--<a href="/denuncias/atualizar/{{denounce.id}}" class="btn btn-primary flex-shrink-0 me-2"
+                    type="button">
+                    <i class="bi bi-tools"></i>
+                    Atualizar
+                </a>-->
+                <a href="/denuncias/desativar/{{denounce.id}}" class="btn btn-danger flex-shrink-0 me-2"
+                    type="button">
+                    <i class="bi bi-tools"></i>
+                    Desativar
+                </a>
+                <a href="/denuncias/validar/{{denounce.id}}" class="btn btn-primary flex-shrink-0 me-2"
+                    type="button">
+                    <i class="bi bi-tools"></i>
+                    Validar
+                </a>
+            </div>
+        </div>
+        <hr>
+    </ng-container>
+    <div class="container border-primary col-md-6 border border-success">
+        <div class="col-md-12">
+            <div class="fs-5 my-2">
+                <label class="mt-1 col-md-4 text-success">Titulo da Denúncia:</label>
+                <output class="mt-2 text-uppercase mx-2">{{denounce.title}}</output>
+            </div>
+            <div class="fs-5 my-2 mt-5">
+                <span class="mt-1 text-success">Mensagem enviada:</span>
+                <div class="row text-center mx-2">
+                    <textarea rows="4" class="mt-2 text-uppercase border border-success">{{denounce.message}}</textarea>
+                </div>
+            </div>
+            <div class="fs-5 my-2 mt-2 mx-2">
+                    <span class="col-md-7 text-success">Quando a denúncia foi realizada:</span>
+                    <output class="mt-2 text-uppercase col-md-5 text-center">{{denounce.date}}</output>
+            </div>
+            <div class="fs-5 my-2 mt-2 mx-2">
+                <span class="mt-1  text-success col-md-4">Denúncia Aceita?:</span>
+                <output class="mt-1 text-uppercase col-md-4 text-center mx-2">{{denounce.accept}}</output>
+            </div>
+            <!-- <div class="fs-5 my-2">
+                <span class="mt-1 text-success">Denúncia Aceita:</span>
+                <p class="mt-2 text-uppercase">{{denounce.accept}}</p>
+            </div> -->
+            <!-- <div class="fs-5 my-2">
+                <span class="mt-1 text-success">Ativo:</span>
+                <p class="mt-2 text-uppercase">{{denounce.active}}</p>
+            </div> -->
+        </div>
+    </div>
+</div>

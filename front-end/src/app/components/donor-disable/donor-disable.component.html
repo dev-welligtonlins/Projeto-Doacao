@@ -1,0 +1,47 @@
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-6">
+                <div class="fs-5 my-2">
+                    <span class="mt-1 text-danger">Nome Completo:</span>
+                    <output type="text" class="form-control text-secondary text-uppercase mt-2" value="{{donor.fullName}}"></output>
+                </div>
+                <div class="fs-5 my-2">
+                    <span class="mt-1 text-danger">Cpf:</span>
+                    <output type="text" class="form-control text-secondary text-uppercase mt-2" value="{{donor.cpf}}"></output>
+                </div>
+                <div class="fs-5 my-2">
+                    <span class="mt-1 text-danger">E-mail:</span>
+                    <output type="text" class="form-control text-secondary text-uppercase mt-2" value="{{donor.email}}"></output>
+                </div>
+                <div class="fs-5 my-2">
+                    <span class="mt-1 text-danger">Gênero:</span>
+                    <output type="text" class="form-control text-secondary text-uppercase mt-2" value="{{donor.gender}}"></output>
+                </div>
+                <div class="fs-5 my-2">
+                    <span class="mt-1 text-danger">Aniversario:</span>
+                    <output type="date" class="form-control text-secondary text-uppercase mt-2" value="{{donor.birthDate}}"></output>
+                </div>
+                <div class="fs-5 my-2">
+                    <span class="mt-1 text-danger">Ativo:</span>
+                    <p class="form-control text-uppercase text-success mt-2">{{donor.active}}</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1 class="text-success">Termo de consentimento</h1>
+                <div>
+                    <h4><input class="form-check-input text-success" type="checkbox" value="1"
+                            (change)="checkValue($event)"> Desativar conta de Doador</h4>
+                    <p>Estou ciente que minha conta de Doador será desativada.</p>
+                </div>
+                <div class="d-flex">
+                    <button (click)="submit()" [disabled]="isChecked == false" class="btn btn-danger flex-shrink-0 me-2"
+                        type="button">
+                        <i class="bi bi-building-check"></i>
+                        Desativar Conta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

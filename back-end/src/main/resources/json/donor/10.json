@@ -1,0 +1,20 @@
+{
+    "address": {
+        "postalCode": "69919503",
+        "country": "Brasil",
+        "state": "Acre",
+        "city": "Jordão",
+        "district": "Bairro do Peteca",
+        "location": "Rua do Boban Marjanovic - 2",
+        "number": "1482"
+    },
+    "user": {
+        "username": "user10",
+        "password": "user10"
+    },
+    "gender": "FEMININO",
+    "fullName": "Sofia Beatriz",
+    "cpf": "00000001000",
+    "email": "contato10@email.com",
+    "birthDate": "2023-02-24"
+}

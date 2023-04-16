@@ -1,0 +1,43 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form">
+        <form (ngSubmit)="submit()" [formGroup]="controlForm">
+          <h1>Cadastro de Denuncia</h1>
+          <div class="form-group mb-3">
+            <label for="title">Titulo</label>
+            <input class="form-control"
+              [ngClass]="{'is-invalid': controlForm.controls['title'].invalid && (controlForm.controls['title'].dirty || controlForm.controls['title'].touched), 'is-valid': controlForm.controls['title'].valid}"
+              id="title" type="text" name="title" placeholder="Digite o titulo" [(ngModel)]="denounce.title"
+              [formControl]="controlForm.controls['title']">
+            <div
+              *ngIf="controlForm.controls['title'].invalid && (controlForm.controls['title'].dirty || controlForm.controls['title'].touched)"
+              [ngClass]="{'invalid-feedback': controlForm.controls['title'].invalid}" role="alert">
+              <span *ngIf="controlForm.controls['title'].errors?.['required']">Preencha esse campo</span>
+              <span *ngIf="controlForm.controls['title'].errors?.['maxlength']">Digite no máximo 100 caracteres</span>
+              <span *ngIf="controlForm.controls['title'].errors?.['pattern']">Digite somente letras de A a Z, números e
+                espaços</span>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="message">Messagem</label>
+            <textarea class="form-control"
+              [ngClass]="{'is-invalid': controlForm.controls['message'].invalid && (controlForm.controls['message'].dirty || controlForm.controls['message'].touched), 'is-valid': controlForm.controls['message'].valid}"
+              rows="5" id="message" name="message" placeholder="Digite a mensagem" [(ngModel)]="denounce.message"
+              [formControl]="controlForm.controls['message']"></textarea>
+            <div
+              *ngIf="controlForm.controls['message'].invalid && (controlForm.controls['message'].dirty || controlForm.controls['message'].touched)"
+              [ngClass]="{'invalid-feedback': controlForm.controls['message'].invalid}" role="alert">
+              <span *ngIf="controlForm.controls['message'].errors?.['required']">Preencha esse campo</span>
+              <span *ngIf="controlForm.controls['message'].errors?.['maxlength']">Digite no máximo 100 caracteres</span>
+              <span *ngIf="controlForm.controls['message'].errors?.['pattern']">Digite somente letras de A a Z</span>
+            </div>
+          </div>
+          <div class="continue-button mt-2">
+            <button class="btn btn-success" type="submit" [disabled]="!controlForm.valid">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

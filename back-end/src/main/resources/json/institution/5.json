@@ -1,0 +1,30 @@
+{
+    "address": {
+        "postalCode": "69919503",
+        "country": "Brasil",
+        "state": "Acre",
+        "city": "Jordão",
+        "district": "Bairro do Peteca",
+        "location": "Rua do Boban Marjanovic - 2",
+        "number": "1482"
+    },
+    "user": {
+        "username": "user5",
+        "password": "user5"
+    },
+    "cover_image": "img5.jpg",
+    "corporate_name": "Instituto Mais Vida - LTDA",
+    "fantasy_name": "Instituto Mais Vida",
+    "cnpj": "00000005000000",
+    "email": "contato5@email.org",
+    "phone": "68555555555",
+    "linkMain": "https://institution5.com",
+    "linkAlternate": "https://institution5.com",
+    "resume": "O instituto mais vida é um orgão responsável por acolher pessoas em estado de necessidade.",
+    "description": "O instituto mais vida tem realizado trabalhos em diversas áreas de apoio social principalmente responsável por acolher pessoas em estado de necessidade.",
+    "about": "Nosso instituto foi fundado em 2011, desde então tem realizado diversas contribuições sociais.",
+    "mission": "Nosso missão visa ajudar pessoas em estado de necessidade.",
+    "vision": "Nossa visão é principalmente ajudar pessoas em estado de necessidade.",
+    "value": "Nossos valores são de ajudar pessoas em estado de necessidade.",
+    "opening_date": "2011-05-28T17:39:44.937"
+}

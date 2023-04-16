@@ -1,0 +1,113 @@
+<div class="container my-3">
+    <div class="row">
+        <!-- TODO: colocar no front-end o botão para direcionamento dessa pagina -->
+        <!-- TODO: fazer a instituição poder atualizar a quantidade de cada item. -->
+        <div class="col-md-12">
+            <form (ngSubmit)="submit(form)" #form="ngForm">
+                <h1 class="mt-4 text-success">Atualizar Campanha</h1>
+                <div class="form-group">
+                    <label for="file">Imagem Principal</label>
+                    <input (change)="onFileChange($event)" type="file" class="form-control" accept="image/jpeg" id="fileUpload">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="title">Título</label> <!-- `^-=+?,.)!;(´¨~ -->
+                    <input class="form-control" id="title" type="text" name="title"
+                        placeholder="Digite o título da campanha" class="form-control" [(ngModel)]="campaign.title">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="resume">Resumo</label>
+                    <textarea id="resume" type="text" name="resume"
+                        placeholder="Digite a descrição da campanha" class="form-control" rows="5"
+                        [(ngModel)]="campaign.resume"></textarea>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" type="text" name="description"
+                        placeholder="Digite a descrição da campanha" class="form-control" rows="5"
+                        [(ngModel)]="campaign.description"></textarea>
+                </div>
+                <hr>
+                <!-- TODO: FAZER REGRA PARA CASO PREENCHER UM CAMPO ENTÃO PRECISA PREENCHER TODOS E SOMENTE HABILITA O BOTÃO DE ADICIONAR ITEM CASO POSITIVO -->
+                <div class="form-group mt-3">
+                    <label for="item_name">Nome do Item</label>
+                    <input id="item_name" type="text" name="item_name" class="form-control"
+                        [(ngModel)]="newItem.item_name">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="type">Grandezas</label>
+                    <br>
+                    <small class="text-muted">Selecione a unidade de medida</small>
+                    <select class="form-select" id="type" [(ngModel)]="newItem.type" name="type">
+                        <option value="UNIDADE">Unidade</option>
+                        <option value="QUILOGRAMA">Quilograma</option>
+                        <option value="LITRO">Litro</option>
+                        <option value="METRO">Metro</option>
+                        <option value="BRL">Moeda Corrente (R$)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="required_value">Quantidade Para Arrecadar</label>
+                    <input id="required_value" type="number" name="required_value" class="form-control"
+                        [(ngModel)]="newItem.required_value">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="item_description">Descrição do Item</label>
+                    <textarea id="item_description" type="text" name="item_description" class="form-control"
+                        placeholder="Descreva as caracteristicas do item" rows="5"
+                        [(ngModel)]="newItem.item_description"></textarea>
+                </div>
+                <hr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Quantidade Arrecadada</th>
+                            <th scope="col">Quantidade Requerida</th>
+                            <th scope="col">Grandeza</th>
+                            <th scope="col">Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="campaign.item.length > 0; else elseTemplateEmpty">
+                            <tr *ngFor="let nItem of campaign.item; index as i;">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{nItem?.item_name}}</td>
+                                <td><input type="number" class="form-control" value="{{nItem?.current_value || 0}}" (keyup)="itemObjectUpdate(i, $event)"></td>
+                                <td>{{nItem?.required_value}}</td>
+                                <td>{{nItem?.type}}</td>
+                                <td (click)="removeItem(i)"><i class="bi bi-x"></i></td>
+                            </tr>
+                        </ng-container>
+                        <ng-template #elseTemplateEmpty>
+                            <tr>
+                                <th colspan="5">Nenhum item cadastrado</th>
+                            </tr>
+                        </ng-template>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary mt-3 mx-2 mb-5" (click)="addItem()">Adicionar Item</button>
+                <hr>
+                <h3 class="mt-4">Finalizar Campanha</h3>
+                <!-- TODO: Fazer um alerta que se finalizar uma campanha não será possível atualizar novamente. -->
+                <div class="form-group mb-3">
+                    <label for="status">Status</label>
+                    <select class="form-control" id="status" [(ngModel)]="campaign.status" name="status">
+                        <option value="PROGRESS" selected>Em Progresso</option>
+                        <option value="PAUSED">Pusado</option>
+                        <option value="FINISHED">Finalizado</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="result">Relatório</label>
+                    <textarea id="result" type="text" name="result"
+                        placeholder="Descreva os resultados obtidos" class="form-control" rows="15"
+                        [(ngModel)]="campaign.result"></textarea>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-success mt-3 mx-2 mb-5">Atualizar</button>
+            </form>
+        </div>
+    </div>
+</div>

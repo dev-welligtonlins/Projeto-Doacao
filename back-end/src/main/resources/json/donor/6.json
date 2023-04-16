@@ -1,0 +1,20 @@
+{
+    "address": {
+        "postalCode": "69919503",
+        "country": "Brasil",
+        "state": "Acre",
+        "city": "Jordão",
+        "district": "Bairro do Peteca",
+        "location": "Rua do Boban Marjanovic - 2",
+        "number": "1482"
+    },
+    "user": {
+        "username": "user6",
+        "password": "user6"
+    },
+    "gender": "MASCULINO",
+    "fullName": "Marcos Antônio da Cruz",
+    "cpf": "00000000600",
+    "email": "contato6@email.com",
+    "birthDate": "2023-02-24"
+}

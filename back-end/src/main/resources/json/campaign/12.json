@@ -1,0 +1,20 @@
+{
+    "cover_image": "img12.jpg",
+    "title": "Campanha Vida Plena",
+    "resume": "Essa é uma campanha que tem o objetivo de ajudar pessoas que estão passando por momentos de necessidade.",
+    "description": "Essa é uma campanha que tem o objetivo de arrecadar produtos para ajudar pessaos carentes que mais precisam de ajuda no momento de necessidade e precisam de ajuda.",
+    "item": [
+        {
+            "item_name": "Feijão",
+            "type": "QUILOGRAMA",
+            "required_value": 100,
+            "item_description": "Precisamos arrecadar 100 KG de fejiao para realizar doações."
+        },
+        {
+            "item_name": "Queijo",
+            "type": "QUILOGRAMA",
+            "required_value": 20,
+            "item_description": "Precisamos arrecadar 100 KG de queijo para realizar doações."
+        }
+    ]
+}

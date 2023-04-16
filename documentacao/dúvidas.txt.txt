@@ -1,0 +1,9 @@
+1. O que fazer quando esquecer de referenciar a issue em um commit?
+
+2. Qual ciclo de vida de uma branch? Posso criar uma branch para somente manter meu versionamento de código sem ficar sofrendo alterações de outras pessoas, antes de fazer o merge, mas também após fazer o merge posso continuar trabalhando normalmente na mesma branch e ir fazendo merges sempre utilizando a mesma branch?
+
+3. TEORICAMENTE (segundo a literatura) existe alguma norma, padrão ou convenção sobre quando fazer o commit ideal?
+
+4. TEORICAMENTE (segundo a literatura) qual o momento ideal de fazer um commit?
+
+5. Posso voltar em um commit específico e criar uma branch nova a partir desse commit sem perder os códigos das branchs posteriores?

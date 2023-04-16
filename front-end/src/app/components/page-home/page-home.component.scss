@@ -1,0 +1,237 @@
+
+
+
+@media(min-width: 768px) {
+    .news__input {
+        width: 50%;
+    }
+}
+
+// .bg-dark1{
+//     background: rgb(27, 137, 24);
+// }
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    font-family:'Roboto', sans-serif;
+}
+//===============CARDS=====================
+// .progress-title{
+//     width: 100%;
+//     height: auto;
+// }
+// .progress-title h3{
+// font-size: 14px;
+// font-weight: 700;
+// color: #fff;
+// margin: 0 0 5px;
+// }
+// .progress{
+//     height: 18px;
+//     background: #ffffff;
+//     border-radius: 20px;
+//     border: 1px solid #000;
+//     box-shadow: 0 2px 2px #4F4C4C;
+//     margin-bottom: 5px;
+//      overflow: visible;
+//     position: relative;
+// }
+
+
+
+// .progress .progress-bar {
+//     border-radius: 20px;
+//     border: 1px solid #000;
+//     animation: animate-positive 2s;
+// }
+
+// .progress .progress-value {
+    // width: 65px;
+    // height: 25px;
+//     line-height: 25px;
+//     background: #171B3C;
+//     font-size: 15px;
+//     color: #fff;
+//     border-radius: 0 0 15px;
+//     border: 1px solid #000;
+//     border-top: none;
+//     box-shadow: 0 2px 2px #4F4C4C;
+//     position: absolute;
+//     bottom: -25px;
+//     right: 60px;
+// }
+@-webkit-keyframes animate-positive{
+    0%{
+        width: 0;
+    }
+}
+
+@keyframes animate-positive{
+    0%{
+        width: 0;
+    }
+}
+
+//============ heart animation =======================
+.heart {
+    margin-top: 5px;
+    margin-left: -10px;
+    position:relative;
+    height: 17px;
+    width: 17px;
+    background: #C9C9C9;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0 0 0 2px;
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+
+.heart.fill-color{
+    background-color: #FF2727;
+}
+
+.heart:before{
+    position:absolute;
+    content: "";
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart:after{
+    position: absolute;
+    content: "";
+    right: -50%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    //background: inherit;
+    border-radius: 50%;
+}
+
+.animation-heart.animation {
+    animation: popup .8s linear;
+    visibility: visible;
+}
+
+ .animation-heart{
+     position:absolute;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 17px;
+     height: 17px;
+     background: #FF2727;
+     //transform: rotate(-45deg);
+     border-radius: 0 0 0 2px;
+     cursor: pointer;
+     animation: popup .8s linear;
+     //visibility: hidden;
+
+ }
+
+ .animation-heart::after {
+     position:absolute;
+     content: "";
+     height: 100%;
+     width: 100%;
+     top: -50%;
+     right: 0;
+     background: inherit;
+     border-radius: 50%;
+ }
+
+ .animation-heart::before{
+    position:absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: -50%;
+    background: inherit;
+    border-radius: 50%;
+
+ }
+
+ @keyframes popup {
+    100% {
+        transform: scale(1.5) rotate(0deg);
+        opacity: 0;
+    }
+ }
+
+//  ================================================================================
+
+.feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+  }
+  
+  .bg-featured-blog {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 15rem;
+  }
+
+  .bg-gradientt {
+    background-image: linear-gradient(rgba(30, 102, 7, 1), rgba(30, 102, 7, 0.2));
+  }
+
+  [data-aos][data-aos][data-aos-duration="4000"],body[data-aos-duration="4000"] [data-aos]{transition-duration:4000ms}[data-aos][data-aos][data-aos-delay="4000"],body[data-aos-delay="4000"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="4000"].aos-animate,body[data-aos-delay="4000"] [data-aos].aos-animate{transition-delay:50ms}
+
+  .video{
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-container{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+  }
+  .map-container iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+  }
+
+//   ============================ SLIDER ======================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

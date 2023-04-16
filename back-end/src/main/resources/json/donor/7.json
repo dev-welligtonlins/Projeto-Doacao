@@ -1,0 +1,20 @@
+{
+    "address": {
+        "postalCode": "69919503",
+        "country": "Brasil",
+        "state": "Acre",
+        "city": "Jordão",
+        "district": "Bairro do Peteca",
+        "location": "Rua do Boban Marjanovic - 2",
+        "number": "1482"
+    },
+    "user": {
+        "username": "user7",
+        "password": "user7"
+    },
+    "gender": "MASCULINO",
+    "fullName": "João Carvalho",
+    "cpf": "00000000700",
+    "email": "contato7@email.com",
+    "birthDate": "2023-02-24"
+}
