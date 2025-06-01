@@ -1,8 +1,10 @@
 #thunder-tests/
 .vscode/*
 !.vscode/tasks.json
-back-end/src/main/resources/*
+back-end/src/main/resources/
 !back-end/src/main/resources/upload
 !back-end/src/main/resources/upload/*
 !back-end/src/main/resources/json
 !back-end/src/main/resources/json/*
+!back-end/src/main/resources/application*.properties
+
