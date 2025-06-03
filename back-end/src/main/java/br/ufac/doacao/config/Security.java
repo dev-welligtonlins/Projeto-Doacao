@@ -1,5 +1,7 @@
 package br.ufac.doacao.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -44,23 +49,33 @@ public class Security {
 
         // PRIMEIRO LIBERA DEPOIS BLOQUEIA
         http.authorizeHttpRequests().antMatchers("/administrator/**").hasRole("ADMIN");
-        //http.authorizeHttpRequests().antMatchers(HttpMethod.GET, "/campaign/**").hasAnyRole("ADMIN", "INSTITUTION");
         http.authorizeHttpRequests().antMatchers("/**").permitAll();
         http.authorizeHttpRequests().anyRequest().authenticated();
 
         http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
         http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK));
 
-        // http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-        // .logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
-        // .invalidateHttpSession(true) ;
-
-        // http.httpBasic().and().logout().clearAuthentication(true).logoutSuccessUrl("/").deleteCookies("JSESSIONID").invalidateHttpSession(true).and();
-
         http.csrf().disable();
 
         return http.build();
 
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of(
+            "http://localhost:4200",
+            "https://localhost:4200",
+            "https://front-end-doacao.onrender.com"
+        ));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return source;
     }
 
 }
