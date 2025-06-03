@@ -20,7 +20,7 @@ public class FiltroCors {
             Arrays.asList(
                 "http://localhost:4200",
                 "https://localhost:4200",
-                "https://doacaoplus.netlify.app")
+                "https://front-end-doacao.onrender.com")
         );
         corsConfig.setAllowedMethods(Arrays.asList("*"));
         corsConfig.setAllowedHeaders(Arrays.asList("*"));
