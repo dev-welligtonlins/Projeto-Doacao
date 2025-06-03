@@ -11,7 +11,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/webacademyufac/hands-on-t2-fusion.git"
+    "url": "https://github.com/dev-welligtonlins/Projeto-Doacao.git"
   },
   "dependencies": {
     "@angular/animations": "^15.0.0",
