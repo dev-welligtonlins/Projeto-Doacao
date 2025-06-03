@@ -49,12 +49,11 @@ public class Security {
 
         // PRIMEIRO LIBERA DEPOIS BLOQUEIA
         http.authorizeHttpRequests().antMatchers("/administrator/**").hasRole("ADMIN");
-        http.authorizeHttpRequests().antMatchers("/**").permitAll();
         http.authorizeHttpRequests().anyRequest().authenticated();
 
         http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
         http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK));
-
+        http.authorizeHttpRequests().antMatchers("/**").permitAll();
         http.csrf().disable();
 
         return http.build();
