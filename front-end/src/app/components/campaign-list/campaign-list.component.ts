@@ -7,7 +7,7 @@ import { CampaignService } from 'src/app/service/campaign.service';
 import { LoginService } from 'src/app/service/login.service';
 import {Item} from "../../model/item";
 import {ProgressService} from "../../service/progress.service";
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-campaign-list',
