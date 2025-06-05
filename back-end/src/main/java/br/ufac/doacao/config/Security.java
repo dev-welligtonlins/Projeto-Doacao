@@ -45,16 +45,18 @@ public class Security {
         http.httpBasic();
         http.cors();
         // http.authorizeHttpRequests().anyRequest().permitAll();
+        http.csrf().disable();
         http.authenticationProvider(authProvider());
 
         // PRIMEIRO LIBERA DEPOIS BLOQUEIA
         http.authorizeHttpRequests().antMatchers("/administrator/**").hasRole("ADMIN");
+        http.authorizeHttpRequests().antMatchers("/**").permitAll();
         http.authorizeHttpRequests().anyRequest().authenticated();
 
         http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
         http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK));
-        http.authorizeHttpRequests().antMatchers("/**").permitAll();
-        http.csrf().disable();
+        
+
 
         return http.build();
 
