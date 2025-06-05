@@ -3,5 +3,5 @@ static_site:
   buildCommand: npm install && npm run build --configuration=production
   routes:
     - type: rewrite
-      from: /*
-      to: /index.html
+      source: /*
+      destination: /index.html
