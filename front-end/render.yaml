@@ -1,12 +1,7 @@
-# render.yaml (na pasta front-end/)
 static_site:
-  # publish: pasta onde estão os arquivos buildados (ajuste se for diferente)
-  publish: dist/front-end-doacao
-  # Comando de build (já costuma estar definido no painel do Render)
+  publish: dist/doacao-app
   buildCommand: npm install && npm run build --configuration=production
-  # Aqui vêm as regras de rewrite:
   routes:
-    # Reescreve qualquer URL (*/***) para /index.html
     - type: rewrite
       from: /*
       to: /index.html
