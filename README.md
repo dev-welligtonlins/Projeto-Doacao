@@ -1,5 +1,6 @@
-# Sobre o repositório hands-on-t2-fusion
-Repositório do time Fusion (turma 2) para o projeto do Hands On do Web Academy
+# Sobre o repositório
+Repositório do time Fusion (turma 2) para o projeto do Hands On do Web Academy (https://webacademy.ufac.br/)
+Disponível em: https://front-end-doacao.onrender.com/
 
 # Sobre o Projeto
 
