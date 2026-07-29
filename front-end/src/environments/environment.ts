@@ -6,7 +6,7 @@ import { IEnviroment } from "./enviroment.interface";
 
 export const environment: IEnviroment = {
   production: false,
-  API_URL: 'https://projeto-doacao.onrender.com',
+  API_URL: '/api',
   FRONT_URL: 'http://localhost:4200'
 };
 

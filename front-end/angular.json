@@ -81,6 +81,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "doacao-app:build:production"
@@ -125,8 +128,6 @@
     }
   },
   "cli": {
-
     "analytics": "c952c43a-79a2-473d-8a8f-9ec91a4f52ac"
-
   }
 }

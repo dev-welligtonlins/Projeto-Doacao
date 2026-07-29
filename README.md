@@ -14,13 +14,13 @@ Existem varias pessoas que gostariam de ajudar por meio de doações mas não sa
 
 Nossa plataforma visa ampliar a comunicação entre os doadores e instituições, pois não existe nenhum sistema com essa proposta no estado do Acre.
 
-# Anbiente dos Protótipos
+# Ambiente dos Protótipos
 
 Os protótipos foram desenvolvidos utilizando o Figma.
 
 https://www.figma.com/file/BAwehcEbgJEjjoOUDWJN1V/Untitled?node-id=0%3A1&t=Y1koOLEjmh0Fh0tS-3
 
-# Como inciar a aplicação
+# Como iniciar a aplicação
 
 Estes são os passos para iniciar a aplicação.
 
